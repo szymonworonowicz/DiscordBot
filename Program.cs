@@ -7,17 +7,16 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace DiscordBot
 {
     class Program
     {
-        public static void Main(string[] args) 
-            =>  new Program().MainAsync().GetAwaiter().GetResult();
+        public static void Main(string[] args)
+            => new Program().MainAsync().GetAwaiter().GetResult();
 
-        public static DiscordSocketClient _client;
-        private CommandService _commands;
-        private IServiceProvider _services;
+
         private readonly IConfiguration _config;
 
         public Program()
@@ -33,77 +32,24 @@ namespace DiscordBot
 
         public async Task MainAsync()
         {
-
-
-            using (var services = ConfigureServices())
-            {
-                var client = services.GetRequiredService<DiscordSocketClient>();
-
-                _client = client;
-                _client.Log += Log;
-
-                _client.Ready += ReadyAsync;
-                services.GetRequiredService<CommandService>().Log += Log;
-
-                await _client.LoginAsync(TokenType.Bot, _config["Token"]);
-                await _client.StartAsync();
-
-                await services.GetRequiredService<CommandHandler>().InitializeAsync();
-
-                await Task.Delay(-1);
-
-
-            }
-        }
-
-        private async Task RegisterCommandsAsync()
-        {
-            _client.MessageReceived += HandleCommandAsync;
-
-            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
-        }
-        private Task Log(LogMessage msg)
-        {
-            Console.WriteLine(msg.ToString());
-
-            return Task.CompletedTask;
-        }
-        private Task ReadyAsync()
-        {
-            Console.WriteLine($"Connected as -> [] :)");
-            return Task.CompletedTask;
-        }
-
-        private async Task HandleCommandAsync(SocketMessage msg)
-        {
-            string messageLower = msg.Content.ToLower();
-
-            var message = msg as SocketUserMessage;
-            if(message ==null || message.Author.IsBot) return;
-
-            int argPos = 0;
-
-            if (message.HasCharPrefix('!', ref argPos) || message.HasMentionPrefix(_client.CurrentUser, ref argPos))
-            {
-                var context = new SocketCommandContext(_client,message);
-                var result = await _commands.ExecuteAsync(context, argPos, _services);
-
-                if (!result.IsSuccess)
+            var host = new HostBuilder()
+                .ConfigureHostConfiguration(configHost => { })
+                .ConfigureServices((hostContext, services) =>
                 {
-                    Console.WriteLine(result.ErrorReason);
-                    await message.Channel.SendMessageAsync(result.ErrorReason);
-                }
-            }
+                    services.AddSingleton(_config);
+                    services.AddSingleton<DiscordSocketClient>();
+                    services.AddSingleton<CommandService>();
+                    services.AddSingleton<CommandHandler>();
+                    services.AddHostedService<DiscordBotBackgroundWorker>();
+                    services.AddHostedService<DiscordReminderBackgroudWorker>();
+                })
+
+                .UseConsoleLifetime()
+                .Build();
+
+            await host.RunAsync();
+
         }
 
-        private ServiceProvider ConfigureServices()
-        {
-            return new ServiceCollection()
-                .AddSingleton(_config)
-                .AddSingleton<DiscordSocketClient>()
-                .AddSingleton<CommandService>()
-                .AddSingleton<CommandHandler>()
-                .BuildServiceProvider();
-        }
     }
 }
