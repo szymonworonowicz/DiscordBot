@@ -24,7 +24,8 @@ namespace DiscordBot
         {
             var _builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName)
-                .AddJsonFile("config.json");
+                .AddJsonFile("config.json")
+                .AddUserSecrets<Program>();
 
             _config = _builder.Build();
         }
@@ -32,6 +33,8 @@ namespace DiscordBot
 
         public async Task MainAsync()
         {
+
+
             using (var services = ConfigureServices())
             {
                 var client = services.GetRequiredService<DiscordSocketClient>();

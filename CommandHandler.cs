@@ -76,8 +76,11 @@ namespace DiscordBot
             {
                 Console.WriteLine($"Command executer {command.Value.Name}");
             }
+            else
+            {
+                await context.Channel.SendMessageAsync($"Sorry , something went wrong ");
+            }
 
-            await context.Channel.SendMessageAsync($"Sorry , something went wrong ");
         }
     }
 }
