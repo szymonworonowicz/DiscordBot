@@ -1,13 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
-using Discord;
-using Discord.Commands;
+﻿using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace DiscordBot
 {
@@ -41,7 +39,7 @@ namespace DiscordBot
                     services.AddSingleton<CommandService>();
                     services.AddSingleton<CommandHandler>();
                     services.AddHostedService<DiscordBotBackgroundWorker>();
-                    services.AddHostedService<DiscordReminderBackgroudWorker>();
+                    //services.AddHostedService<DiscordReminderBackgroudWorker>();
                 })
 
                 .UseConsoleLifetime()

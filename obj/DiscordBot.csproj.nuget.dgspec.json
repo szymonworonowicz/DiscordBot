@@ -55,6 +55,14 @@
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.9, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.7, )"
             }
           },
           "imports": [

@@ -457,6 +457,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.9": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props": {},
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets": {}
+        }
+      },
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -483,6 +490,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.11.7": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1408,6 +1424,70 @@
         "runtime.json"
       ]
     },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.9": {
+      "sha512": "Sug+YeP9YYigFnUdvPCUJjBz7cc2VVR7UBZkIRwPWmVR/HmIM5HbcpX940s4BM3xgL3QHGp3qN7AqkcZ/MjZEw==",
+      "type": "package",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.9",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EULA.md",
+        "ThirdPartyNotices.txt",
+        "build/Container.props",
+        "build/Container.targets",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets",
+        "build/ToolsTarget.props",
+        "build/ToolsTarget.targets",
+        "microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
+        "microsoft.visualstudio.azure.containers.tools.targets.nuspec",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Common.dll",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Shared.dll",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Tasks.dll",
+        "tools/Newtonsoft.Json.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/utils/KillProcess.exe",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll"
+      ]
+    },
     "Microsoft.Win32.Registry/5.0.0": {
       "sha512": "dDoKi0PnDz31yAyETfRntsLArTlVAVzUzCIvvEDsDsucrl33Dl8pIJG06ePTJTI3tGpeyHS9Cq7Foc/s4EeKcg==",
       "type": "package",
@@ -1480,6 +1560,22 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.12.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "RestSharp/106.11.7": {
+      "sha512": "NzndH096CTulvq+ihr7u1mBJ29oukdi9A8bypQJk+kaHxbRzTTrtgsEEQAb04ptTUZmQa7cgo7uF5z7NuEPX1Q==",
+      "type": "package",
+      "path": "restsharp/106.11.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.11.7.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "System.Collections/4.3.0": {
@@ -2661,7 +2757,9 @@
       "Discord.Net >= 2.3.1",
       "Microsoft.Extensions.Configuration.UserSecrets >= 5.0.0",
       "Microsoft.Extensions.DependencyInjection >= 5.0.1",
-      "Microsoft.Extensions.Hosting >= 5.0.0"
+      "Microsoft.Extensions.Hosting >= 5.0.0",
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.9",
+      "RestSharp >= 106.11.7"
     ]
   },
   "packageFolders": {
@@ -2718,6 +2816,14 @@
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+            "target": "Package",
+            "version": "[1.10.9, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.11.7, )"
           }
         },
         "imports": [
